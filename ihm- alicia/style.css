@@ -1,0 +1,906 @@
+/* 1 · Box-modellen: bredden gäller hela lådan */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 2 · Varumärket som variabler */
+:root {
+    /* Färgpalett */
+    --rod: #8c1d2c;
+    /* huvudfärg: rubriker, linjer, det röda blocket */
+    --rod-djup: #5e0f1a;
+    /* brödtext och hover */
+    --kram: #f8f0dc;
+    /* grundfärg: ljus kräm med varm gul ton */
+    --smor: #f0e1b8;
+    /* smörgul: hover och små ytor */
+    --guld: #d8b26a;
+    /* champagne: små detaljer */
+    --block: var(--rod);
+    /* bakgrund i det röda blocket */
+    --linje: rgba(140, 29, 44, 0.55);
+    /* tunna röda linjer */
+
+    /* Typografi */
+    --rubrikfont: "Fraunces", Georgia, "Times New Roman", serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+    /* Mått */
+    --luft: 1rem;
+    --radie: 14px;
+    --bredd: 76rem;
+}
+
+/* 3 · Grundstil */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: var(--mono);
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: var(--rod-djup);
+    background: var(--kram);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--rubrikfont);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--rod);
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+h2 {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    margin: 0 0 calc(var(--luft) * 1.75);
+}
+
+h3 {
+    font-size: 1.45rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.6rem;
+}
+
+p {
+    max-width: 60ch;
+}
+
+a {
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+figure {
+    margin: 0;
+}
+
+section[id] {
+    scroll-margin-top: 6rem;
+}
+
+.inre {
+    max-width: var(--bredd);
+    margin: 0 auto;
+    padding: 0 calc(var(--luft) * 1.5);
+}
+
+/* Liten överrubrik i kursiv mono före sektionsrubrikerna: "01 //" */
+main {
+    counter-reset: sektion;
+}
+
+section[id] h2::before {
+    counter-increment: sektion;
+    content: "0" counter(sektion) " //";
+    display: block;
+    margin-bottom: 0.9rem;
+    font-family: var(--mono);
+    font-style: italic;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--rod);
+}
+
+/* Stjärna efter sektionsrubrikerna */
+section[id] h2::after {
+    content: "";
+    display: inline-block;
+    width: 0.55em;
+    height: 0.55em;
+    margin-left: 0.25em;
+    vertical-align: 0.08em;
+    background: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0l9 32 31-14-17 29 27 17-33 3 6 33-23-24-23 24 6-33-33-3 27-17-17-29 31 14z'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0l9 32 31-14-17 29 27 17-33 3 6 33-23-24-23 24 6-33-33-3 27-17-17-29 31 14z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* Handritade dekorationer */
+.doodle {
+    position: absolute;
+    color: var(--rod);
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    pointer-events: none;
+}
+
+/* 4 · Sidhuvud och meny */
+.sidhuvud {
+    --ljus: #f8f0dc;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--block);
+    color: var(--ljus);
+}
+
+.sidhuvud h1 {
+    color: var(--ljus);
+}
+
+.sidhuvud-inre {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    max-width: var(--bredd);
+    margin: 0 auto;
+    padding: 0.85rem calc(var(--luft) * 1.5);
+}
+
+.logotyp h1 {
+    font-size: 1.55rem;
+    line-height: 1;
+}
+
+.logotyp h1 a {
+    text-decoration: none;
+}
+
+.roll {
+    margin: 0.2rem 0 0;
+    font-size: 0.56rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.meny {
+    flex: 1;
+}
+
+.meny ul {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.meny a {
+    white-space: nowrap;
+    font-size: 0.82rem;
+    text-decoration: none;
+    text-underline-offset: 0.35em;
+}
+
+.meny a:hover {
+    text-decoration: underline;
+}
+
+/* Kontakt blir en röd knapp längst till höger */
+.meny-knapp {
+    margin-left: auto;
+}
+
+.meny .meny-knapp a {
+    display: inline-block;
+    padding: 0.45rem 1.1rem;
+    border-radius: 999px;
+    background: var(--ljus);
+    color: var(--block);
+    font-family: var(--rubrikfont);
+    font-weight: 500;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+}
+
+.meny .meny-knapp a::after {
+    content: " →";
+}
+
+.meny .meny-knapp a:hover {
+    background: var(--smor);
+    text-decoration: none;
+}
+
+.sociala {
+    display: flex;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0 0 0 -1.5rem;
+    padding: 0;
+}
+
+.sociala a {
+    display: grid;
+    place-items: center;
+    width: 1.9rem;
+    height: 1.9rem;
+    border: 1px solid rgba(248, 240, 220, 0.5);
+    border-radius: 50%;
+    transition: background 0.2s, color 0.2s;
+}
+
+.sociala a:hover {
+    background: var(--ljus);
+    color: var(--block);
+}
+
+.sociala svg {
+    width: 0.85rem;
+    height: 0.85rem;
+    fill: currentColor;
+}
+
+.sociala svg[fill="none"] {
+    fill: none;
+}
+
+/* Knappen för mörkt läge ligger diskret nere i hörnet */
+#tema {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 20;
+}
+
+/* 5 · Hero */
+.intro {
+    --p: 0;
+    position: relative;
+    overflow: hidden;
+    padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(3.5rem, 7vw, 6rem);
+}
+
+.intro-rutnat {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.intro-titel {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    font-size: clamp(2.6rem, 7.5vw, 6rem);
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+    pointer-events: none;
+}
+
+.rad {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 0.08em;
+    transform: translateX(calc(var(--p) * -6%));
+    will-change: transform;
+}
+
+.rad-2 {
+    padding-left: 18%;
+    transform: translateX(calc(var(--p) * 8%));
+}
+
+.rad>span {
+    display: inline-block;
+    animation: glid-upp 1s cubic-bezier(0.2, 0.7, 0.1, 1) both;
+}
+
+.rad-2>span {
+    animation-delay: 0.12s;
+}
+
+@keyframes glid-upp {
+    from {
+        transform: translateY(105%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.intro-bild {
+    position: relative;
+    z-index: 1;
+    margin-top: -2.1rem;
+    transform: translateY(calc(var(--p) * 50px)) rotate(calc(var(--p) * -1.5deg));
+    will-change: transform;
+}
+
+.intro-ram {
+    overflow: hidden;
+    border: 1px solid var(--rod);
+    border-radius: var(--radie);
+    aspect-ratio: 3 / 2;
+    animation: tona-in 1.2s 0.25s ease both;
+}
+
+.intro-ram img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 52% 35%;
+    transform: scale(calc(1.18 - var(--p) * 0.18)) translateY(calc(var(--p) * -3%));
+    will-change: transform;
+}
+
+/* Använder "translate" så att scroll-effektens transform inte skrivs över */
+@keyframes tona-in {
+    from {
+        opacity: 0;
+        translate: 0 24px;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+.gnistor {
+    left: -1.75rem;
+    bottom: -1.75rem;
+    width: 5.5rem;
+    height: 5.5rem;
+    fill: currentColor;
+    stroke: none;
+    transform: rotate(calc(var(--p) * 120deg)) scale(calc(1 + var(--p) * 0.3));
+}
+
+.intro-text {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    transform: translateY(calc(var(--p) * -70px));
+    animation: tona-in 1s 0.45s ease both;
+}
+
+.intro-etikett {
+    margin: 0;
+    max-width: 34ch;
+    font-size: 0.85rem;
+    color: var(--rod);
+}
+
+.intro-underrubrik {
+    margin: 1rem 0 0;
+    max-width: 22ch;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--rod);
+}
+
+.intro-underrubrik::after {
+    content: " //";
+}
+
+/* Knapp med tunn ram, fylls vid hover */
+.knapp {
+    display: inline-block;
+    padding: 0.7rem 1.4rem;
+    border: 1px solid var(--rod);
+    border-radius: 999px;
+    color: var(--rod);
+    font-family: var(--rubrikfont);
+    font-weight: 500;
+    font-size: 1.15rem;
+    text-decoration: none;
+    transition: background 0.25s, color 0.25s;
+}
+
+.knapp::after {
+    content: "  →";
+}
+
+.knapp:hover {
+    background: var(--rod);
+    color: var(--kram);
+}
+
+/* 6 · Rullande band */
+.band {
+    overflow: hidden;
+    border-top: 1px solid var(--linje);
+    border-bottom: 1px solid var(--linje);
+    padding: 0.8rem 0;
+    color: var(--rod);
+}
+
+.band-spar {
+    display: flex;
+    width: max-content;
+    animation: rulla 40s linear infinite;
+}
+
+.band-spar span {
+    display: flex;
+    align-items: center;
+    font-family: var(--rubrikfont);
+    font-weight: 500;
+    font-size: 1.05rem;
+    white-space: nowrap;
+}
+
+.band-spar span::after {
+    content: "✶";
+    margin: 0 1.75rem;
+    font-size: 0.9rem;
+}
+
+@keyframes rulla {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* 7 · Sektionerna */
+section {
+    padding: calc(var(--luft) * 5) 0;
+}
+
+section+section {
+    border-top: 1px solid var(--linje);
+}
+
+/* Om mig: porträtt i ram + text */
+.om-inre {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+}
+
+.portratt {
+    position: relative;
+    max-width: 24rem;
+}
+
+.portratt img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: 50% 30%;
+    border: 1px solid var(--rod);
+}
+
+.snurr {
+    top: -1.6rem;
+    left: -2rem;
+    width: 7rem;
+    height: 3rem;
+}
+
+.om-text p:first-of-type {
+    font-family: var(--rubrikfont);
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    color: var(--rod);
+}
+
+/* Erfarenheter: rubrik och bild till vänster, kort till höger */
+.erf-inre {
+    display: grid;
+    gap: 2.5rem;
+}
+
+.erf-bild {
+    display: none;
+}
+
+.erf-lista {
+    display: grid;
+    gap: 1.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* 8 · Kort med tunn röd ram och rundade hörn */
+.kort {
+    position: relative;
+    padding: 1.6rem 1.75rem;
+    border: 1px solid var(--rod);
+    border-radius: var(--radie);
+    background: var(--kram);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.kort:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 4px 4px 0 var(--rod);
+}
+
+.kort p {
+    margin: 0 0 0.6rem;
+}
+
+.kort p:last-child {
+    margin-bottom: 0;
+}
+
+/* Organisation · datum som liten etikett */
+li.kort h3+p {
+    font-style: italic;
+    font-size: 0.8rem;
+    color: var(--rod);
+}
+
+.kort strong {
+    font-weight: 500;
+}
+
+/* 9 · Det röda blocket (Färdigheter) */
+.rott-block {
+    background: var(--block);
+    color: var(--kram);
+    border-top: none;
+}
+
+.rott-block h2,
+.rott-block h2::before {
+    color: var(--kram);
+}
+
+.rott-block+section {
+    border-top: none;
+}
+
+.rutnat {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+}
+
+.rott-block .kort {
+    border-color: var(--kram);
+    color: var(--rod-djup);
+}
+
+.rott-block .kort:hover {
+    box-shadow: 4px 4px 0 var(--smor);
+}
+
+/* 10 · Kontakt */
+.kontakt-inre {
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.kontakt-lankar {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.9rem;
+}
+
+.kontakt-lankar p {
+    margin: 0;
+}
+
+.kontakt-lankar a {
+    display: inline-block;
+    padding: 0.7rem 1.4rem;
+    border: 1px solid var(--rod);
+    border-radius: 999px;
+    color: var(--rod);
+    font-family: var(--rubrikfont);
+    font-weight: 500;
+    font-size: clamp(1.05rem, 2.4vw, 1.4rem);
+    text-decoration: none;
+    transition: background 0.25s, color 0.25s;
+}
+
+.kontakt-lankar a::after {
+    content: "  →";
+}
+
+.kontakt-lankar a:hover {
+    background: var(--rod);
+    color: var(--kram);
+}
+
+.hjarta {
+    top: -3.25rem;
+    right: 0;
+    width: 4.5rem;
+    height: 4rem;
+    transform: rotate(10deg);
+}
+
+/* 11 · Knappar och fokus */
+button {
+    font: inherit;
+    font-size: 0.72rem;
+    padding: 0.5rem 1rem;
+    color: var(--rod);
+    background: var(--kram);
+    border: 1px solid var(--rod);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+button:hover {
+    background: var(--rod);
+    color: var(--kram);
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--rod);
+    outline-offset: 3px;
+}
+
+.sidhuvud a:focus-visible {
+    outline-color: var(--ljus);
+}
+
+footer {
+    padding: calc(var(--luft) * 2) calc(var(--luft) * 1.5);
+    border-top: 1px solid var(--linje);
+    text-align: center;
+    font-size: 0.75rem;
+    font-style: italic;
+    color: var(--rod);
+}
+
+footer p {
+    margin: 0 auto;
+}
+
+/* 12 · Animation när blocken scrollas in (sätts av script.js) */
+.js [data-reveal] {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.7, 0.1, 1);
+}
+
+.js [data-reveal].synlig {
+    opacity: 1;
+    transform: none;
+}
+
+.js .kort[data-reveal].synlig:hover {
+    transform: translate(-4px, -4px);
+}
+
+/* 13 · Mobil: menyn får en egen rad */
+@media (max-width: 47.99rem) {
+    .sidhuvud-inre {
+        flex-wrap: wrap;
+        gap: 0.6rem 1rem;
+        padding-top: 0.7rem;
+        padding-bottom: 0.6rem;
+    }
+
+    .logotyp {
+        flex: 1;
+    }
+
+    .sociala {
+        margin: 0;
+    }
+
+    .meny {
+        order: 3;
+        flex-basis: 100%;
+    }
+
+    .meny ul {
+        gap: 0.9rem;
+    }
+
+    .meny a {
+        font-size: 0.72rem;
+    }
+
+    .meny .meny-knapp a {
+        padding: 0.35rem 0.8rem;
+        font-size: 0.78rem;
+    }
+
+    .intro-bild {
+        margin-top: -1.2rem;
+    }
+}
+
+/* 14 · Större skärmar */
+@media (min-width: 48rem) {
+
+    .inre,
+    .sidhuvud-inre {
+        padding-left: calc(var(--luft) * 3);
+        padding-right: calc(var(--luft) * 3);
+    }
+
+    /* Hero: bild till vänster, text till höger, rubriken över båda */
+    .intro-rutnat {
+        grid-template-columns: 7fr 4fr;
+        column-gap: 4rem;
+        row-gap: 0;
+    }
+
+    .intro-titel {
+        grid-column: 1 / -1;
+        padding-left: 6%;
+    }
+
+    .intro-bild {
+        margin-top: calc(clamp(2.6rem, 7.5vw, 6rem) * -0.5);
+    }
+
+    .intro-text {
+        align-self: stretch;
+        justify-content: center;
+        padding-top: 4rem;
+    }
+
+    .intro-underrubrik {
+        margin-top: auto;
+        padding-top: 2rem;
+    }
+
+    section {
+        padding: calc(var(--luft) * 7) 0;
+    }
+
+    .om-inre {
+        grid-template-columns: 5fr 7fr;
+        gap: 5rem;
+    }
+
+    .portratt {
+        justify-self: end;
+        width: 100%;
+    }
+
+    .erf-inre {
+        grid-template-columns: 4fr 7fr;
+        gap: 4rem;
+        align-items: start;
+    }
+
+    .erf-sida h2 {
+        font-size: clamp(2.4rem, 4vw, 3.4rem);
+    }
+
+    .erf-sida {
+        position: sticky;
+        top: 7rem;
+    }
+
+    .erf-bild {
+        display: block;
+        max-width: 15rem;
+        transform: rotate(-3deg);
+    }
+
+    .erf-bild img {
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        object-position: 50% 25%;
+        border: 1px solid var(--rod);
+        border-radius: var(--radie);
+    }
+
+    .erf-lista .kort {
+        display: grid;
+        grid-template-columns: 1fr 1.4fr;
+        column-gap: 2rem;
+    }
+
+    .erf-lista .kort h3 {
+        grid-row: span 2;
+    }
+
+    /* Förskjutna kort i det röda blocket */
+    .rutnat {
+        padding-bottom: 2.5rem;
+    }
+
+    .rutnat .kort:nth-child(2) {
+        margin-top: 2.5rem;
+        margin-bottom: -2.5rem;
+    }
+
+    .kontakt-inre {
+        grid-template-columns: 7fr 5fr;
+        gap: 4rem;
+    }
+}
+
+/* 15 · Mörkt läge: nya färger när body har klassen morkt */
+body.morkt {
+    --rod: #ef9aa4;
+    --rod-djup: #f1dfd2;
+    --kram: #1d1214;
+    --smor: #3a2328;
+    --block: #5e0f1a;
+    --linje: rgba(239, 154, 164, 0.4);
+}
+
+body.morkt .rott-block,
+body.morkt .rott-block h2,
+body.morkt .rott-block h2::before {
+    color: #f1dfd2;
+}
+
+body.morkt .rott-block .kort {
+    background: #1d1214;
+}
+
+body.morkt .sidhuvud {
+    --ljus: #f1dfd2;
+}
+
+body.morkt .meny .meny-knapp a:hover {
+    background: #ef9aa4;
+}
+
+body.morkt .knapp:hover,
+body.morkt .kontakt-lankar a:hover {
+    color: #1d1214;
+}
+
+/* Respektera den som vill ha mindre rörelse */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .intro {
+        --p: 0 !important;
+    }
+
+    .js [data-reveal] {
+        opacity: 1;
+        transform: none;
+    }
+}
