@@ -9,14 +9,30 @@
         content="Alicia Höglund studerar till Digital Marketing Specialist på IHM Business School och söker LIA för perioden 6 mars – 6 juni 2027.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Elegant editorial typography: Cormorant Garamond & Playfair Display for headings & Inter for body -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TNJ3Q36C');</script>
+    <!-- End Google Tag Manager -->
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TNJ3Q36C" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <header class="sidhuvud">
         <div class="sidhuvud-inre">
             <div class="logotyp">
@@ -27,8 +43,8 @@
             <nav class="meny" aria-label="Huvudmeny">
                 <ul>
                     <li><a href="#om">Om mig</a></li>
-                    <li><a href="#erfarenheter">Erfarenheter</a></li>
                     <li><a href="#skills">Färdigheter</a></li>
+                    <li><a href="#erfarenheter">Erfarenheter</a></li>
                     <li class="meny-knapp"><a href="#kontakt">Kontakt</a></li>
                 </ul>
             </nav>
@@ -45,7 +61,8 @@
                 </li>
                 <li>
                     <a href="mailto:info@aliciahoglund.com" aria-label="E-post">
-                        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor"
+                            stroke-width="1.6">
                             <rect x="3" y="5.5" width="18" height="13" rx="1" />
                             <path d="M3.5 6.5l8.5 6.5 8.5-6.5" />
                         </svg>
@@ -53,22 +70,35 @@
                 </li>
             </ul>
         </div>
-        <button id="tema" type="button" hidden>Byt till mörkt läge</button>
     </header>
 
     <main>
-        <!-- Hero: rubriken överlappar bilden, text till höger -->
-        <section class="intro">
-            <div class="inre intro-rutnat">
+        <!-- Hero: Alicia-08.jpg som bakgrund med mjuk parallax-scroll, ren sans-serif (Helvetica) -->
+        <section class="intro parallax-block" data-parallax="true">
+            <div class="intro-bg-lager" aria-hidden="true">
+                <img src="images/Alicia-08.jpg" alt="Alicia Höglund" class="parallax-img" width="4900" height="3267">
+                <div class="intro-overdrag"></div>
+            </div>
+
+            <div class="inre intro-innehall">
+                <div class="intro-kicker-rad">
+                    <span class="intro-badge">LIA 2027</span>
+                    <p class="intro-etikett">Studerar på IHM Business School och söker LIA-praktik för perioden 6 mars –
+                        6 juni 2027.</p>
+                </div>
+
                 <h2 class="intro-titel">
                     <span class="rad"><span>Digital marketing</span></span>
                     <span class="rad rad-2"><span>specialist</span></span>
                 </h2>
 
-                <figure class="intro-bild">
-                    <div class="intro-ram">
-                        <img src="images/alicia-08-hero.jpg" alt="Alicia Höglund" width="2200" height="1467">
-                    </div>
+                <p class="intro-underrubrik">med teknisk grund och strategiskt fokus</p>
+
+                <div class="intro-handling">
+                    <a class="knapp" href="#kontakt">Kontakta mig om LIA</a>
+                </div>
+
+                <figure class="intro-bild-dekor" aria-hidden="true">
                     <svg class="doodle gnistor" viewBox="0 0 80 80" aria-hidden="true">
                         <path d="M22 18c1 9 4 12 13 13-9 1-12 4-13 13-1-9-4-12-13-13 9-1 12-4 13-13z" />
                         <path d="M48 44c.7 6 2.7 8 8.7 8.7-6 .7-8 2.7-8.7 8.7-.7-6-2.7-8-8.7-8.7 6-.7 8-2.7 8.7-8.7z" />
@@ -76,16 +106,10 @@
                         <circle cx="66" cy="34" r="2.6" fill="none" stroke="currentColor" stroke-width="1.6" />
                     </svg>
                 </figure>
-
-                <div class="intro-text">
-                    <p class="intro-etikett">Studerar på IHM Business School och söker LIA-praktik för perioden 6 mars – 6 juni 2027.</p>
-                    <a class="knapp" href="#kontakt">Kontakta mig om LIA</a>
-                    <p class="intro-underrubrik">med teknisk grund och strategiskt fokus</p>
-                </div>
             </div>
         </section>
 
-        <!-- Rullande band (dekor) -->
+        <!-- Rullande band (dekorativ löpare) -->
         <div class="band" aria-hidden="true">
             <div class="band-spar">
                 <span>Digital Marketing Specialist</span><span>IHM Business School</span>
@@ -95,94 +119,188 @@
             </div>
         </div>
 
-        <section id="om">
-            <div class="inre om-inre">
-                <figure class="portratt" data-reveal>
-                    <img src="images/alicia-01-hero.jpg" alt="Alicia Höglund" width="1200" height="1800">
+        <!-- STORT MÖRKT VINRÖTT BLOCK (Celeste Noir-inspiration):
+             Innehåller Om mig och övergår sömlöst till Färdigheter & Verktyg med 3 överlappande tjänstekort -->
+        <div class="block-omslag-vinrod">
+            <!-- Om mig -->
+            <section id="om" class="sektion-om">
+                <div class="vattenmarke" aria-hidden="true">DIGITAL MARKETING • STRATEGY • NOIR STUDIO</div>
+
+                <div class="inre om-inre">
+                    <div class="avatar-ram">
+                        <img src="images/Alicia-08.jpg" alt="Alicia Höglund avatar" class="avatar-bild">
+                    </div>
+
+                    <div class="om-text" data-reveal>
+                        <h2>Om mig</h2>
+                        <p class="om-ingress">Jag utbildar mig till Digital Marketing Specialist på IHM Business School
+                            i Göteborg och söker
+                            LIA för
+                            6/3 2027 – 6/6 2027.</p>
+                        <p class="om-brod">Genom frilansande har jag främst arbetat med den tekniska och strukturella
+                            sidan av
+                            marknadsföring, såsom
+                            uppsättning av hemsidor, landningssidor, e-postflöden och automationer. Nu ser jag fram emot
+                            att
+                            bredda
+                            min erfarenhet, fördjupa mig i SEO, content och annonsering samt utvecklas inom det
+                            strategiska
+                            arbetet.
+                        </p>
+                    </div>
+
                     <svg class="doodle snurr" viewBox="0 0 120 50" aria-hidden="true">
                         <path d="M6 32C34 8 98 6 96 20c-2 14-62 20-60 8C38 14 88 10 114 22" />
                     </svg>
-                </figure>
-                <div class="om-text" data-reveal>
-                    <h2>Om mig</h2>
-                    <p>Jag utbildar mig till Digital Marketing Specialist på IHM Business School i Göteborg och söker LIA för
-                        6/3 2027 – 6/6 2027.</p>
-                    <p>Genom frilansande har jag främst arbetat med den tekniska och strukturella sidan av marknadsföring, såsom
-                        uppsättning av hemsidor, landningssidor, e-postflöden och automationer. Nu ser jag fram emot att bredda
-                        min erfarenhet, fördjupa mig i SEO, content och annonsering samt utvecklas inom det strategiska arbetet.
-                    </p>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="erfarenheter">
+            <!-- Färdigheter & verktyg (De 3 överlappande tjänstekorten vid blockets nederkant) -->
+            <section id="skills" class="sektion-skills">
+                <div class="inre">
+                    <div class="skills-rubrik-omslag" data-reveal>
+                        <p class="skills-underrubrik-kicker">• I HELP YOU WITH •</p>
+                        <h2>Färdigheter & verktyg</h2>
+                    </div>
+
+                    <div class="rutnat skills-rutnat">
+                        <article class="kort kort-kram" data-reveal>
+                            <div class="kort-stjarna" aria-hidden="true">★</div>
+                            <h3>Webb & Plattformar</h3>
+                            <p>Erfarenhet av att bygga och uppdatera webbsidor och landningssidor i verktyg som Wix och
+                                Webbas.
+                            </p>
+                        </article>
+
+                        <article class="kort kort-vinrod" data-reveal>
+                            <div class="kort-stjarna" aria-hidden="true">★</div>
+                            <h3>E-post & Automation</h3>
+                            <p>Uppsättning av e-postsekvenser, kundflöden och automationer i bland annat MailerLite.</p>
+                        </article>
+
+                        <article class="kort kort-noir" data-reveal>
+                            <div class="kort-stjarna" aria-hidden="true">★</div>
+                            <h3>Arbetssätt & Mjuka färdigheter</h3>
+                            <p>Självständigt och lösningsorienterat arbetssätt, kundrelationer, projektplanering och
+                                kommunikation.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Erfarenheter: Ljust krämvitt block med rundade hörn, redaktionell lista och porträttbild -->
+        <section id="erfarenheter" class="sektionsblock block-kram">
             <div class="inre erf-inre">
-                <div class="erf-sida" data-reveal>
+                <div class="erf-vänster">
+                    <p class="erf-kicker">OUR VALUES & BACKGROUND</p>
                     <h2>Erfarenheter</h2>
-                    <figure class="erf-bild">
-                        <img src="images/alicia-26-hero.jpg" alt="" width="1200" height="1800">
+
+                    <ul class="erf-lista">
+                        <li class="kort erf-rad" data-reveal>
+                            <span class="rad-nummer">01</span>
+                            <div class="rad-innehall">
+                                <h3>Digital Marketing Specialist</h3>
+                                <p class="erf-meta"><strong>IHM Business School</strong> · YH-utbildning</p>
+                                <p>Praktiska kurser inom AI & Tech, SEO, SEM och Influencer Marketing.</p>
+                            </div>
+                        </li>
+
+                        <li class="kort erf-rad" data-reveal>
+                            <span class="rad-nummer">02</span>
+                            <div class="rad-innehall">
+                                <h3>Virtuell Assistent</h3>
+                                <p class="erf-meta"><strong>Frilans</strong> · Maj 2025 – Nuvarande</p>
+                                <p>Arbetar med uppsättning av webbsidor, e-postautomationer och tekniskt support vid
+                                    webbinarier
+                                    samt direkt kundkontakt.</p>
+                            </div>
+                        </li>
+
+                        <li class="kort erf-rad" data-reveal>
+                            <span class="rad-nummer">03</span>
+                            <div class="rad-innehall">
+                                <h3>Yacht Stewardess & Head of Department</h3>
+                                <p class="erf-meta"><strong>Yachtingindustrin</strong> · Feb 2022 – Mar 2025</p>
+                                <p>Ansvarade för högt ställd service och ledde team i en internationell miljö med fokus
+                                    på
+                                    ledarskap
+                                    och problemlösning.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="erf-hoger" data-reveal>
+                    <figure class="erf-bild-ram">
+                        <img src="images/brand shoot.jpeg" alt="Alicia Höglund editorial brand shoot" class="erf-foto"
+                            width="736" height="981">
                     </figure>
                 </div>
-                <ul class="erf-lista">
-                    <li class="kort" data-reveal>
-                        <h3>Digital Marketing Specialist</h3>
-                        <p><strong>IHM Business School</strong> · YH-utbildning</p>
-                        <p>Praktiska kurser inom AI & Tech, SEO, SEM och Influencer Marketing.</p>
-                    </li>
-                    <li class="kort" data-reveal>
-                        <h3>Virtuell Assistent</h3>
-                        <p><strong>Frilans</strong> · Maj 2025 – Nuvarande</p>
-                        <p>Arbetar med uppsättning av webbsidor, e-postautomationer och tekniskt support vid webbinarier
-                            samt direkt kundkontakt.</p>
-                    </li>
-                    <li class="kort" data-reveal>
-                        <h3>Yacht Stewardess & Head of Department</h3>
-                        <p><strong>Yachtingindustrin</strong> · Feb 2022 – Mar 2025</p>
-                        <p>Ansvarade för högt ställd service och ledde team i en internationell miljö med fokus på ledarskap
-                            och problemlösning.</p>
-                    </li>
-                </ul>
             </div>
         </section>
 
-        <!-- Sidans enda helröda block -->
-        <section id="skills" class="rott-block">
-            <div class="inre">
-                <h2 data-reveal>Färdigheter & verktyg</h2>
-                <div class="rutnat">
-                    <article class="kort" data-reveal>
-                        <h3>Webb & Plattformar</h3>
-                        <p>Erfarenhet av att bygga och uppdatera webbsidor och landningssidor i verktyg som Wix och Webbas.
-                        </p>
-                    </article>
-                    <article class="kort" data-reveal>
-                        <h3>E-post & Automation</h3>
-                        <p>Uppsättning av e-postsekvenser, kundflöden och automationer i bland annat MailerLite.</p>
-                    </article>
-                    <article class="kort" data-reveal>
-                        <h3>Arbetssätt & Mjuka färdigheter</h3>
-                        <p>Självständigt och lösningsorienterat arbetssätt, kundrelationer, projektplanering och
-                            kommunikation.</p>
-                    </article>
-                </div>
+        <!-- Fullbreddssektionen: Alicia-08.jpg med mjuk och följsam parallax-scroll -->
+        <section class="fullbredd-sektion parallax-block" data-parallax="true"
+            aria-label="Alicia Höglund fullbreddsfotografi">
+            <div class="fullbredd-parallax-lager" aria-hidden="true">
+                <img src="images/Alicia-08.jpg" alt="Alicia Höglund fullbredd" class="parallax-img fullbredd-bild"
+                    width="4900" height="3267">
+                <div class="fullbredd-overdrag"></div>
+            </div>
+            <div class="fullbredd-innehall">
+                <div class="fullbredd-etikett">ALICIA HÖGLUND · CREATIVE & STRATEGIC GROWTH</div>
             </div>
         </section>
 
-        <section id="kontakt">
+        <!-- Kontakt: Mörkt vinrött/noir block med rundade hörn och eleganta pillerknappar -->
+        <section id="kontakt" class="sektionsblock block-kontakt">
             <div class="inre kontakt-inre">
+                <div class="kontakt-vanster">
                 <div class="kontakt-text" data-reveal>
+                    <p class="kontakt-kicker">GET IN TOUCH</p>
                     <h2>Kontakt</h2>
-                    <p>Vill du erbjuda en LIA-plats, diskutera projekt eller veta mer om min bakgrund? Hör gärna av dig!</p>
+                    <p>Vill du erbjuda en LIA-plats, diskutera projekt eller veta mer om min bakgrund? Hör gärna av dig!
+                    </p>
                 </div>
+
                 <div class="kontakt-lankar" data-reveal>
                     <svg class="doodle hjarta" viewBox="0 0 100 90" aria-hidden="true">
                         <path d="M50 82C22 60 6 42 18 24 28 9 46 14 50 30c3-15 22-24 33-10 13 17-3 38-34 60" />
                         <path d="M30 70c-6 4-10 9-8 13" />
                     </svg>
                     <p class="kontakt-mejl"><a href="mailto:info@aliciahoglund.com">info@aliciahoglund.com</a></p>
-                    <p class="kontakt-lank"><a href="https://www.linkedin.com/in/alicia-h%C3%B6glund-6095733b4/" target="_blank"
-                            rel="noopener">Alicia Höglund på LinkedIn</a></p>
+                    <p class="kontakt-lank"><a href="https://www.linkedin.com/in/alicia-h%C3%B6glund-6095733b4/"
+                            target="_blank" rel="noopener">Alicia Höglund på LinkedIn</a></p>
                 </div>
+                </div>
+
+                <!-- Kontaktformulär: skickas till HubSpot (portal 149565941) via script.js -->
+                <form class="kontakt-formular" id="kontaktformular" novalidate data-reveal>
+                    <div class="falt">
+                        <label for="kf-namn">För- och efternamn</label>
+                        <input id="kf-namn" name="for_och_efternamn" type="text" autocomplete="name">
+                    </div>
+                    <div class="falt">
+                        <label for="kf-epost">E-post <span aria-hidden="true">*</span></label>
+                        <input id="kf-epost" name="email" type="email" autocomplete="email" required>
+                    </div>
+                    <div class="falt">
+                        <label for="kf-foretag">Företag</label>
+                        <input id="kf-foretag" name="company" type="text" autocomplete="organization">
+                    </div>
+                    <div class="falt">
+                        <label for="kf-meddelande">Meddelande</label>
+                        <textarea id="kf-meddelande" name="message" rows="5"></textarea>
+                    </div>
+                    <!-- Honungsfälla mot spambotar – syns inte för besökare -->
+                    <div class="falt-dold" aria-hidden="true">
+                        <label for="kf-webb">Lämna tomt</label>
+                        <input id="kf-webb" name="webbplats" type="text" tabindex="-1" autocomplete="off">
+                    </div>
+                    <button class="formular-knapp" type="submit">Skicka</button>
+                    <p class="formular-status" role="status" aria-live="polite"></p>
+                </form>
             </div>
         </section>
     </main>
@@ -190,6 +308,8 @@
     <footer>
         <p>© 2026 Alicia Höglund · Byggd för hand med HTML, CSS och JavaScript</p>
     </footer>
+
+    <button id="tema" type="button" hidden>Byt till mörkt läge</button>
 </body>
 
 </html>
